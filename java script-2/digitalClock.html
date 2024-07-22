@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalClock</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        h1{
+            margin-top: 20%;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 100px;
+            color: rgb(211, 145, 63);
+        }
+    </style>
+</head>
+<body onload="timer()">
+    <h1></h1>
+</body>
+<script>
+    function timer() {
+    var Time = new Date();
+    var h = Time.getHours();
+    var m = Time.getMinutes();
+    var s = Time.getSeconds();
+    var session = "AM";
+    if(h>=12){
+        session = "PM";
+    }
+    if(h>12){
+        h = h-12;
+    }
+    h = h<10 ? "0"+h : h;
+    m = m<10 ? "0"+m : m;
+    s = s<10 ? "0"+s : s;
+    var clock = h + " : " + m + " : " + s + " : " + session;
+    document.getElementsByTagName("h1")[0].innerText = clock;
+    setTimeout( timer,1000)
+    }
+</script>
+</html>

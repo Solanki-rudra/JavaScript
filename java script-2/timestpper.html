@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: beige;
+        }
+        .main{
+            margin-top: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #default{
+            font-size: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <h1 id="default">0</h1>
+    <button id="start" onclick="startTime()">start</button>
+    <button id="stop" onclick="stopTime()">stop</button>
+</div>
+</body>
+<script>
+    var x;
+    var y = 1;
+    function startTime() {
+        x = setInterval(count,1000)
+    }
+    function count() {
+        document.getElementById("default").innerText = y;
+        y++;
+    }
+    function stopTime() {
+        clearInterval(x)
+    }
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>3D Clock</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/134/three.min.js"></script>
+</head>
+<body>
+<div id="clock"></div>
+<script>
+var clock = new THREE.Clock();
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById("clock").appendChild(renderer.domElement);
+
+// Create the clock hands.
+var hourHand = new THREE.Mesh(new THREE.CylinderGeometry(5, 10, 100), new THREE.MeshBasicMaterial({color: "black"}));
+hourHand.position.z = 50;
+var minuteHand = new THREE.Mesh(new THREE.CylinderGeometry(4, 8, 150), new THREE.MeshBasicMaterial({color: "black"}));
+minuteHand.position.z = 75;
+var secondHand = new THREE.Mesh(new THREE.CylinderGeometry(3, 6, 200), new THREE.MeshBasicMaterial({color: "black"}));
+secondHand.position.z = 100;
+
+scene.add(hourHand);
+scene.add(minuteHand);
+scene.add(secondHand);
+
+function update() {
+var now = new Date();
+var hour = now.getHours();
+var minute = now.getMinutes();
+var second = now.getSeconds();
+
+// Calculate the angle of each hand.
+var hourAngle = hour * 360 / 12;
+var minuteAngle = minute * 360 / 60;
+var secondAngle = second * 360 / 60;
+
+// Rotate the hands.
+hourHand.rotation.x = hourAngle;
+minuteHand.rotation.x = minuteAngle;
+secondHand.rotation.x = secondAngle;
+
+// Render the scene.
+renderer.render(scene, camera);
+}
+
+// Update the clock every second.
+setInterval(update, 1000);
+</script>
+</body>
+</html>

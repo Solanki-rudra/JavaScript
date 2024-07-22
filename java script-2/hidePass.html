@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="Enter Password" type="password" id="password">
+    <br>
+    <br>
+    <button id="hider" onclick="changer()">Show Password</button>
+    <br>
+    <br>
+    <input placeholder="Confirm Password" type="password" id="confPassword" onkeyup="checker(this)">
+    <br>
+    <h2 id="err"></h2>
+    <h2 id="C
+    err"></h2>
+</body>
+<script>
+    var password = document.getElementById("password");
+    function changer() {
+        var type = password.getAttribute("type");
+        if (type == "password") {
+            password.setAttribute("type", "text");
+            document.getElementById("hider").innerText = "Hide Password";
+        } else {
+            password.setAttribute("type", "password");
+            document.getElementById("hider").innerText = "Show Password";
+        }
+    }
+     function checker(elem) {
+        var conF = document.getElementById("confPassword");
+        var err = document.getElementById("err");
+        if(password.value.length>0){
+            if (password.value != conF.value) {
+                err.innerText = "Confirm Password not Matched";
+            }
+            else{
+                err.innerText = "";
+            }
+        }
+        else{
+            err.innerText = "Please Re-enter Password";
+        }
+     }
+     window.addEventListener("keyup",event =>{
+        var x = event.getModifierState("CapsLock");
+        if (x) {
+            document.getElementById("Cerr").innerText = "Warning!! CapsLock is on"
+        } else {
+            document.getElementById("Cerr").innerText = ""
+        }
+     })
+</script>
+</html>

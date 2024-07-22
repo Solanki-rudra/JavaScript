@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .name{
+            font-size: 50px;
+            color: blueviolet;
+            text-align: center;
+            margin-top: 100px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            cursor: pointer;
+            transition: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="name" onmouseenter="modify()" onmouseleave="unModify()">Rudra</div>
+</body>
+<script>
+    function modify() {
+        document.getElementsByClassName("name")[0].style.fontSize = "100px";
+        document.getElementsByClassName("name")[0].style.color = "black";
+    }
+    function unModify() {
+        document.getElementsByClassName("name")[0].style.fontSize = "50px";
+        document.getElementsByClassName("name")[0].style.color = "blueviolet";
+    }
+</script>
+</html>

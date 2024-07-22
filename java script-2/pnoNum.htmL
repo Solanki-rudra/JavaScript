@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Please Enter Number</h1>
+    <input type="text" id="btn" onkeyup="val(this)">
+    <div id="res"></div><br>
+    <button onclick="checker()">Done</button>
+</body>
+<script>
+    document.getElementById("res").style.color = "red";
+function val(elem) {
+    if (isNaN(elem.value)) {
+        document.getElementById('res').innerHTML = "Please enter a number"
+    }
+    else{
+        document.getElementById('res').innerHTML = ""
+        if (elem.value.length>10) {
+            document.getElementById('res').innerHTML = "Please enter 10 digits only"      
+        }
+        else{
+            document.getElementById('res').innerHTML = ""      
+            
+        }
+    }
+}
+function checker() {
+    var value = document.getElementById("btn").value;
+    if (value<6000000000) {
+                document.getElementById('res').innerHTML = "Please enter valid number" 
+                // alert("Please enter a valid number")     
+            }
+            else{
+                document.getElementById('res').innerHTML = "Perfect!!"      
+                document.getElementById('res').style.color = "green"      
+                // alert("Perfect!!")
+            }
+}
+</script>
+</html>

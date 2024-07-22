@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            margin: 5px;
+        }
+        .main{
+            background-color: yellowgreen;
+            width: 600px;
+            height: 600px;
+            position: relative;
+        }
+        #sub{
+            background-color: aquamarine ;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="move()">Click</button>
+    <br>
+    <div class="main">
+        <div id="sub"></div>
+    </div>
+</body>
+<script>
+    function move() {
+        var sub = document.getElementById('sub');
+        var pos = 0;
+        var timer = setInterval(start, 5);
+        function start() {
+            if (pos == 550) {
+                clearInterval(timer);
+            }else{
+            pos++; 
+            sub.style.top = pos + "px";
+            sub.style.left = pos + "px";   
+            }
+        }
+    }
+    </script>
+</html>
